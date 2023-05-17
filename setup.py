@@ -4,34 +4,29 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 requirements = [            
-  'transformers',
-  'datasets',
-  'pytesseract',
-  'pandas',
-  'numpy'
+  'transformers'
 ]
 
-
 setuptools.setup(
-    name="doc_transformers",
-    version="1.0.2",
+    name="pipelineagents",
+    version="0.1",
     author="Vishnu Nandakumar",
     author_email="nkumarvishnu25@gmail.com",
-    description="Deep learning for document processing",
+    description="Replication of transformer agents using Huggingface pipelines",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url = 'https://github.com/Vishnunkumar/doc_transformers/',
+    url = 'https://github.com/Vishnunkumar/pipelineagents/',
     packages=[
-        'doc_transformers',
+        'pipelineagents',
     ],
-    package_dir={'doc_transformers': 'doc_transformers'},
+    package_dir={'pipelineagents': 'pipelineagents'},
     package_data={
-        'doc_transformers': ['doc_transformers/*.py']
+        'pipelineagents': ['pipelineagents/*.py']
     },
     install_requires=requirements,
     license="MIT license",
     zip_safe=False,
-    keywords='doc_transformers',
+    keywords='pipelineagents',
     classifiers=(
     'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
     'Intended Audience :: Developers',      # Define that your audience are developers
