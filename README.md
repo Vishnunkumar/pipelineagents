@@ -1,42 +1,16 @@
-# Doc Transformers
-Document processing using transformers. This is still in developmental phase, currently supports only extraction of form data i.e (key - value pairs)
+# PipelineAgents
+
+Replication of transfomers agents using huggingface pipelines
 
 ```bash
-pip install -q doc-transformers
-```
-
-## Pre-requisites
-
-Please install the following seperately
-```
-pip install pip --upgrade
-pip install -q git+https://github.com/huggingface/transformers.git
-
-pip install pyyaml==5.1
-
-# workaround: install old version of pytorch since detectron2 hasn't released packages for pytorch 1.9 (issue: https://github.com/facebookresearch/detectron2/issues/3158)
-pip install torch==1.8.0+cu101 torchvision==0.9.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
-
-# install detectron2 that matches pytorch 1.8
-# See https://detectron2.readthedocs.io/tutorials/install.html for instructions
-pip install -q detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/torch1.8/index.html
+pip install -u pipelineagents
 ```
 
 ## Implementation
 
 ```python
-# loads the pretrained dataset also 
-from doc_transformers import parser
-
-# loads the image and labels
-image = parser.load_image(input_path_image)
-labels = parser.load_tags()
-
-# loads the model
-feature_extractor, processor, model = parser.load_models()
-
-# gets the bounding boxes, predictions, extracted words and image processed
-kp = parser.process_image(image, feature_extractor, processor, model, labels)
+agent = PipelineAgent("Classify the image:working/sample.jpg")
+res = agent.run_pipeline()
 ```
 
 ## Results
